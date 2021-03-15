@@ -1,0 +1,148 @@
+#Token admin c6d87923032ceac617e9b4c42ea9edb605e740f7
+#Token user1 79f5659e4771e60c9bc39a97677de11bf13c574c
+
+### PRODUCTS
+
+GET http://localhost:8000/api/v1/products/
+Content-Type: application/json
+
+###
+
+GET http://localhost:8000/api/v1/products/1/
+Content-Type: application/json
+
+###
+
+GET http://localhost:8000/api/v1/products/?price_max=400&price_min=220
+Content-Type: application/json
+
+###
+
+GET http://localhost:8000/api/v1/products/?name=socks
+Content-Type: application/json
+
+###
+
+POST http://localhost:8000/api/v1/products/
+Content-Type: application/json
+Authorization: Token 79f5659e4771e60c9bc39a97677de11bf13c574c
+
+{
+    "name": "Winter hat",
+    "description": "Fur hat with straps",
+    "price": 5600
+}
+
+###
+
+DELETE http://localhost:8000/api/v1/products/3/
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
+
+### PRODUCT-REVIEWS
+
+GET http://localhost:8000/api/v1/product-reviews/
+Content-Type: application/json
+
+###
+
+GET http://localhost:8000/api/v1/product-reviews/?evaluation_max=3
+Content-Type: application/json
+
+###
+
+POST http://localhost:8000/api/v1/product-reviews/
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
+
+{
+    "product_id": 2,
+    "text": "Broke on the second day",
+    "evaluation": 1
+}
+
+###
+
+DELETE  http://localhost:8000/api/v1/product-reviews/2/
+Content-Type: application/json
+Authorization: Token 79f5659e4771e60c9bc39a97677de11bf13c574c
+
+### ORDERS
+
+GET http://localhost:8000/api/v1/orders/
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
+
+###
+
+GET http://localhost:8000/api/v1/orders/?total_price_min=100
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
+
+###
+
+GET http://localhost:8000/api/v1/orders/?positions=1
+Content-Type: application/json
+Authorization: Token 79f5659e4771e60c9bc39a97677de11bf13c574c
+
+###
+
+POST http://localhost:8000/api/v1/orders/
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
+
+{
+    "order_positions": [
+        {
+            "product": 2,
+            "quantity": 1
+        }
+    ]
+}
+
+###
+
+PATCH http://localhost:8000/api/v1/orders/3/
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
+
+{
+    "status": "DONE"
+}
+
+###
+
+DELETE http://localhost:8000/api/v1/orders/4/
+Content-Type: application/json
+Authorization: Token 79f5659e4771e60c9bc39a97677de11bf13c574c
+
+### PRODUCT-COLLECTIONS
+
+GET http://localhost:8000/api/v1/product-collections/
+Content-Type: application/json
+Authorization: Token 79f5659e4771e60c9bc39a97677de11bf13c574c
+
+###
+
+POST http://localhost:8000/api/v1/product-collections/
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
+
+{
+    "title": "Clothes",
+    "text": "These things will help you stay warm",
+    "products_in": [
+        {
+            "product_id": 2
+        },
+        {
+            "product_id": 4
+        }
+    ]
+}
+
+###
+
+DELETE http://localhost:8000/api/v1/product-collections/3/
+Content-Type: application/json
+Authorization: Token c6d87923032ceac617e9b4c42ea9edb605e740f7
