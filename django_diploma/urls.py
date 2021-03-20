@@ -21,6 +21,7 @@ from product.views import ProductViewSet
 from product_review.views import ProductReviewViewSet
 from order.views import OrderViewSet
 from product_collection.views import CollectionViewSet
+from user.views import UserViewSet
 
 
 router = DefaultRouter()
@@ -28,6 +29,7 @@ router.register('products', ProductViewSet, basename='product')
 router.register('product-reviews', ProductReviewViewSet, basename='product-review')
 router.register('orders', OrderViewSet, basename='order')
 router.register('product-collections', CollectionViewSet, basename='product-collection')
+router.register('users', UserViewSet, basename='user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
