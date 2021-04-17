@@ -6,3 +6,4 @@ pytest>=6.2.2
 model-bakery
 gunicorn
 django-heroku
+python-dotenv
